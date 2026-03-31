@@ -76,7 +76,7 @@ Ab dakha jo number jitni bar aya ga utni bar us k inde ma 1 plus ho jaya ga*/
 
 /*Ab is ma dakho hum ik naya varibel banaya ga jo original array ma sa elemnts ko pick kara 0 sa sharu ho ga or bhata jaya ga n sa phala tak*/
 
-for(int array_picker = 0 ; array_picker > n; array_picker++)
+for(int array_picker = 0 ; array_picker < n; array_picker++)
 {
     /*Yaha asa ha k hum original array yani arr ma sa array_picker ki madad sa number ko uthaya ga yani arr[array_picker] yad raha k index level per
     ya kam karta ha jab hum [] ya use karta ha or usa count_new_array ma us ki asli jaga per 0 ko overwrite kar da ga yani i k mtlb ya ha k agr 
