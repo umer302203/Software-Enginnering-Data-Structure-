@@ -44,7 +44,7 @@ for(int maximum_finder = 1 ; maximum_finder < n ; maximum_finder++)
     ha (Ya wohi arr[0] ha jisa hum na sab sa bara farz kia tha) to wo max ko upade kar da us ma wo wala save kar da
     Ab ya phala check kara ga ya dakha ga acha 1 sa bara 2 ha ya usa max ma save kar da pher ya kha ga acha to 4 2 sa bhi bara ha t ya 4 ko ave kara ga
     isi tara ya loop chlat raha ga jab tak conditon false nhi ho jati*/
-    if(maximum_finder> arr[0])
+    if(maximum_finder> max) //yaha max ana ha ma na ghalti sa arr[0] likh di ha 
     {
         /*Or jasa k bataya k ya is max ma ya maimum_finder usa save karta raha ga jab tak bara na mil jaya*/
         max = arr[maximum_finder];
