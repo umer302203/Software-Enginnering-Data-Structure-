@@ -35,7 +35,7 @@ void shell_sort(int arr[], int n)
 
 int main()
 {
-    int arr[]{12, 34, 54, 2, 3};
+    int arr[]= {12, 34, 54, 2, 3};
     int n = sizeof(arr) / sizeof(arr[0]);
 
     cout << "Array before Sorting: ";

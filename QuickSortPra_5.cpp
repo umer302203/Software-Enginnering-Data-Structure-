@@ -29,37 +29,37 @@ void partition(int arr[], int low, int high, int &pi)
         MTLB ma samjta hu agr hamara ya ha [8,3,2,14,4,6,1,5] to jab i 8 per ho ga to j 3 per ho ga ab jab 3 ko dakha jaya ga k kia ya 5 sa chta ha agr ha
         to pher khuch nhi karna bas j ko ik aga move kar dana ha or sath ma j ko i k sath swap bhi kar dana ha yani  jo hamra 3 yani j ha wo swap ho jaya ga
         8 k sath mtlb 8 phala a jaya ga or 3 bad ma asa  [3,8,2,14,4,6,1,5] or sath ma j ik array aga bhi chala jaya ga */
-        if (arr[j] <= arr[pivot])
+        if (arr[j] <= pivot) // Correction #1: arr[pivot] ki jagah 'pivot' variable istemal kiya.
         {
             i++;
             swap(arr[i], arr[j]);
         }
-        /*AB ya to ho gia lakn masla ya ha k abhi hum na sirf andar wala elemnt ko arrange kia ha hum na kis bhi pivot ko us ki shi position per nhi 
-        la aya mtlb k agr asa ha na [1,2,3,14,,6,,5]  or is ma 5 pivot hajo abhi i 3 per ha to huma last wala yani jo pivot 5 ha usa i sa ik qadam
-        aga la kar ana ha yani i+1 or jo elemnt ha jisa la kar jana ha wo i+1 hi ha or usa last wala k sath swap karna ha
-        simple ma ya ha k jo hamara i sa aga wala ha yani i+1 wo pivot sa bara ha to usa hum na pivot yani high sa swap karna ha (yad raha k pivot sa swap
-        nhi karna ha ku k pivot ka index change hota rahata ha) or us pi yani jo pivot ha us ki jaga bhi i+1 honi ha
-        HUM pi is liya banaya ku k wo hamara quick sort k bataya ga k pivot ki asal inde kia ha is liya usa hum pie =i+1 kara ga */
-        swap(arr[i+1],arr[high]);
-        //Jasa k ma na phala bataya ha k ya quicksort function ko pivt ki asal location bataya ga mtlb pivot asal ma to i+1 ki jaga hi ho ga na is liya
-        //mtlb simple ya us pivt ki asli jaga ka index ha
-        pi =(i+1);
     }
+    /*AB ya to ho gia lakn masla ya ha k abhi hum na sirf andar wala elemnt ko arrange kia ha hum na kis bhi pivot ko us ki shi position per nhi 
+    la aya mtlb k agr asa ha na [1,2,3,14,,6,,5]  or is ma 5 pivot hajo abhi i 3 per ha to huma last wala yani jo pivot 5 ha usa i sa ik qadam
+    aga la kar ana ha yani i+1 or jo elemnt ha jisa la kar jana ha wo i+1 hi ha or usa last wala k sath swap karna ha
+    simple ma ya ha k jo hamara i sa aga wala ha yani i+1 wo pivot sa bara ha to usa hum na pivot yani high sa swap karna ha (yad raha k pivot sa swap
+    nhi karna ha ku k pivot ka index change hota rahata ha) or us pi yani jo pivot ha us ki jaga bhi i+1 honi ha
+    HUM pi is liya banaya ku k wo hamara quick sort k bataya ga k pivot ki asal inde kia ha is liya usa hum pie =i+1 kara ga */
+    swap(arr[i + 1], arr[high]); // Correction #2: Yeh line 'for' loop ke bahar move ki.
+    //Jasa k ma na phala bataya ha k ya quicksort function ko pivt ki asal location bataya ga mtlb pivot asal ma to i+1 ki jaga hi ho ga na is liya
+    //mtlb simple ya us pivt ki asli jaga ka index ha
+    pi = (i + 1); // Correction #2: Yeh line bhi 'for' loop ke bahar move ki.
 }
 /*Ab hum na ku k ya sab bana lia ha lakn huma isa print bhi to karwana ha na scren per to us k liya hum alag sa ik print function bana la ga
 acha ab is function ko banaga ga is ma wasa to asa hota ha k hum print karwana k liya 2 paremeters chiya ik array h ga or ik us k size ku k hum na for
 loop lagana ha or wo for loop hi us array ma sa ik ik elemnt nikal kar scren per print karwaya */
-void print_Sort(int arr[],int size)
+void print_Sort(int arr[], int size)
 {
-    for(int i = 0;i<=size;i++)
+    for (int i = 0; i < size; i++) // Correction #3: Loop ki condition '<=' se '<' ki.
     {
-        cout<<arr[i]<<" ";
+        cout << arr[i] << " ";
     }
 }
 /*Ab hum ik asa fucntion bana ha taka jab pivt ko asal poistion mil jaya to us k left or right dono side ko sort kia ja saga*/
-void quick_sort(int arr[],int low,int high)
+void quick_sort(int arr[], int low, int high)
 {
-    if(low<high)
+    if (low < high)
     {
         /*Jasa k phala uper bataya ha k pi pivot ki asal position k index ko store karta ha or ya ik naya block ha to is k liya huma dobara
         sa batana para ga varibel ka  ku k varible jasa hu apna block sa niklna ha mtlb brackets sa to mar jata ha is liya int pi ki*/
@@ -67,14 +67,14 @@ void quick_sort(int arr[],int low,int high)
         /*Ab hum partition wala function ko call kara ga array ko sort karna k liya is ma hum phala apna arr ko input da ga yani pora 6 number ka array
         us k bad low da ga low ki uper hum na conition dal di ha k ya low phala number ha index 0 ka  or high sab sa bara wala hota ha or pi jasa k 
         bataya ha k pivot ki original position ka index number ha*/
-        partition(arr,low,high,pi);
+        partition(arr, low, high, pi);
         /*Ab hum isi function ko call kara ga taka wo partition wala ko dobara call kar saga is ma bhi same input asa hi ho ga k phala arr pher low mtlb sab 
         sa phala index wala pher pi-1 mtlb jo original pivot ha us ki position sa ik martaba phala mtlb ya pivot ki left side wala ho ga jasa 3 [5] 7 8 is ma
         ab 3 left side per ha na 5 yani pivot k to 3 per ya apply ho ga*/
-        quick_sort(arr,low,pi-1);
+        quick_sort(arr, low, pi - 1);
         /*Ab ya right side wala k liya ho ga ya bhi wohi same usi tara k ya arr input la ga start ya pivot sa aga yani jasa 3 [5] 7 8 is ma sa 
         7 8 per apply h ga is ma hight end wala ha*/
-        quick_sort(arr,pi+1,high);
+        quick_sort(arr, pi + 1, high);
     }
 }
 

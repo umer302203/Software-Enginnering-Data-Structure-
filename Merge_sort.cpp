@@ -46,8 +46,8 @@ void MergeSort(int arr[],int L,int R)
 
 int main()
 {
-  int n =10;
-  int arr[10]={1,2,3,5,6,7,8,9,83,65};
+  int n =8;
+  int arr[10]={1,5,6,2,7,3,7,8,9};
   MergeSort(arr,0,n-1);
   for(int k =0;k<n;k++)
   {

@@ -20,12 +20,5 @@ int main() {
     int target = 3;
 
     int result = linearSearch(arr, n, target);
-
-    if (result == -1) {
-        cout << "Element not found." << endl;
-    } else {
-        cout << "Element found at index " << result << endl;
-    }
-
-    return 0;
+ cout<<result<<endl;
 }
